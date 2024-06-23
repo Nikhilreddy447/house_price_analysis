@@ -1,13 +1,16 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-
-
-# useful for handling different item types with a single interface
+import csv
 from itemadapter import ItemAdapter
+from scrapy.exceptions import DropItem
+from src.logger import logging
 
-
-class DatacollectionPipeline:
-    def process_item(self, item, spider):
-        return item
+class PricePipeline:
+    def process_item(self,item,spider):
+        logging.info("data processing on price constraint")
+        adapter = ItemAdapter(item)
+        
+        if adapter.get("price"):
+            adapter["price"] = adapter["price"] / 100000
+            return item
+        else:
+            logging.info(f"missing price in a record {item}")
+            raise DropItem(f"Missing Price in {item}")

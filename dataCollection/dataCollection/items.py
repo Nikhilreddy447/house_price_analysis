@@ -1,12 +1,20 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 
-
-class DatacollectionItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class HousePriceItem(scrapy.Item):
+    city = scrapy.Field()
+    locality_name = scrapy.Field()
+    coordinates = scrapy.Field()
+    luxury = scrapy.Field()
+    project_property = scrapy.Field()
+    power_status = scrapy.Field()
+    furnished = scrapy.Field()
+    bathrooms = scrapy.Field()
+    bedrooms = scrapy.Field()
+    property_type = scrapy.Field()
+    water_status = scrapy.Field()
+    operating_since = scrapy.Field()
+    tenants_preferred = scrapy.Field()
+    luxury_service = scrapy.Field()
+    parking = scrapy.Field()
+    sqft_price = scrapy.Field()
+    price = scrapy.Field()
