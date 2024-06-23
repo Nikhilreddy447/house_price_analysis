@@ -56,6 +56,32 @@ This project aims to create an automated data pipeline for collecting, processin
 [Table Content](#table-of-contents)
 
 ## Data Collection 
+### Command to start scrapy project
+
+```sh
+scrapy startproject dataCollection
+```
+
+### Command to generate spider
+
+```sh
+scrapy genspider dataacollector www.magicbricks.com
+```
+
+### Scrapy Spider
+The Scrapy spider collects house price data from MagicBricks. The data includes fields such as city, locality name, coordinates, price, and more.
+
+### Steps to Run the Spider
+1. **Define the Item**: The item defines the structure of the scraped data.
+2. **Update the Spider**: The spider collects data and yields items.
+3. **Create the Pipeline**: The pipeline processes and saves the data.
+4. **Enable the Pipeline**: Enable the pipeline in the Scrapy settings.
+5. **Run the Spider**: Use the Scrapy command to run the spider and collect data.
+
+### Running the Spider
+```sh
+scrapy crawl data_collector
+```
 
 [Table Content](#table-of-contents)
 
